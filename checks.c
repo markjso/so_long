@@ -1,16 +1,20 @@
 void	check_walls(t_map *map)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (map->map[i] != '\0')
-	if (map->w[0][i] != '1' || [map->h - 1][i] != '1')
 	{
+		j = 0;
+		while (map->map[i][j])
 		{
-			ft_putstr("map is not surrounded by walls\n");
-			free(line);
-			exit (1);
-		}
+			if (map->map[0][j] != '1' || [map->w - 1][j] != '1')
+				ft_putstr("map is not surrounded by walls\n");
+			if (map->map[j][0] != '-1' || map->map[i][map->h - 1] != '1')
+				ft_putstr("map is not surrounded by walls\n");
+			j++
+			}
 		i++;
 	}
 }
