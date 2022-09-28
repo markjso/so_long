@@ -21,6 +21,8 @@
 #  define BUFFER_SIZE 5
 # endif
 
+void	*ft_calloc(size_t nmeb, size_t size);
+
 char	*get_next_line(int fd);
 int		ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int c);

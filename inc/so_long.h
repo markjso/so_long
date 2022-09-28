@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 10:30:37 by jmarks            #+#    #+#             */
-/*   Updated: 2022/09/26 16:53:20 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/09/28 16:16:27 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include <fcntl.h>
 # include "../mlx/mlx.h"
 # include "get_next_line.h"
@@ -49,14 +48,14 @@ typedef struct s_map
 	void	*win;
 	void	*img;
 }	t_map;
-/* Close program */
-int		closeprogram(void);
 
+int		closeprogram(void);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int n);
 void	place_player(t_map *map, int height, int width);
 void	place_collectable(t_map *map);
+int		check_map_file(char *str);
 int		check_shape (t_map *map);
 void	check_walls(t_map *map);
 void	valid_map(t_map *map);
