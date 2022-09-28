@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:07:20 by jmarks            #+#    #+#             */
-/*   Updated: 2022/09/26 15:45:19 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/09/28 15:16:20 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -104,9 +104,9 @@ void	valid_map(t_map *map)
 		ft_putstr("Error\nThere are no collectables\n");
 		closeprogram();
 	}
-	if (map->pcount > 1 || map->ecount > 1)
+	if (map->pcount != 1 || map->ecount != 1)
 	{
-		ft_putstr("Error\nThere is more than one player or exit\n");
+		ft_putstr("Error\nInvalid number of players or exits\n");
 		closeprogram();
 	}
 }

@@ -12,6 +12,20 @@
 
 #include "../inc/get_next_line.h"
 
+void	*ft_calloc(size_t nmeb, size_t size)
+{
+	char	*buf;
+	size_t	i;
+
+	i = 0;
+	buf = (char *) malloc(nmeb * size);
+	if (!buf)
+		return (NULL);
+	while (i < (nmeb * size))
+		buf[i++] = '\0';
+	return ((void *) buf);
+}
+
 static char	*ft_get_line_from_file(int fd, char *buffer, char *saved)
 {
 	int		read_size;
@@ -66,7 +80,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buffer = (char *) ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
 		return (NULL);
 	line = ft_get_line_from_file(fd, buffer, saved);
