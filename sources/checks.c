@@ -59,8 +59,18 @@ void	check_walls(t_map *map)
 	valid_shape(map);
 }
 
-static void	item_count(t_map *map, int y, int x)
+static int	item_count(t_map *map, int y, int x)
 {
+	if (map->map[y][x] == 'E')
+		map->ecount++;
+	if (map->map[y][x] == 'C')
+		map->ccount++;
+	if (map->map[y][x] == 'P')
+	{
+		map->pcount++;
+		y = map->playery;
+		x = map->playerx;
+	}
 	if (map->map[y][x] != '1' &&
 			map->map[y][x] != '0' &&
 			map->map[y][x] != 'P' &&
@@ -69,17 +79,7 @@ static void	item_count(t_map *map, int y, int x)
 	{
 		ft_putstr("Error\nInvalid character in map file\n");
 		closeprogram();
-	}
-	else if (map->map[y][x] == 'E')
-		map->ecount++;
-	else if (map->map[y][x] == 'C')
-		map->ccount++;
-	else if (map->map[y][x] == 'P')
-	{
-		map->pcount++;
-		y = map->playery;
-		x = map->playerx;
-	}
+		return (0);
 }
 
 void	valid_map(t_map *map)
@@ -98,16 +98,17 @@ void	valid_map(t_map *map)
 		}
 		y++;
 	}
-	if (map->ccount < 1)
-	{
+	if (map->ccount == 0)
 		ft_putstr("Error\nThere are no collectables\n");
-		closeprogram();
-	}
-	if (map->pcount != 1 || map->ecount != 1)
-	{
-		ft_putstr("Error\nInvalid number of players or exits\n");
-		closeprogram();
-	}
+	if (map->pcount < 1)
+		ft_putstr("Error\nThere must be a player in the game\n");
+	if (map->pcount > 1)
+		ft_putstr("Error\nThere cannot be more than one player\n");
+	if (map->ecount < 1)
+		ft_putstr("Error\nThere must be an exit in the game\n");
+	if (map->ecount > 1)
+		ft_putstr("Error\nThere can only be one exit in the game\n");
+	check_walls(map);
 }
 
 void	flood_fill(t_map *map, int y, int x)
