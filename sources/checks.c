@@ -49,8 +49,7 @@ void	check_walls(t_map *map)
 		x++;
 	}
 	while (map->map[y])
-	{
-		if (map->map[y][0] != '1' || map->map[y][map->w - 1] != '1')
+	{		if (map->map[y][0] != '1' || map->map[y][map->w - 1] != '1')
 		{
 			ft_putstr("Error\nMap is not surrounded by walls\n");
 			closeprogram();
@@ -109,4 +108,16 @@ void	valid_map(t_map *map)
 		ft_putstr("Error\nInvalid number of players or exits\n");
 		closeprogram();
 	}
+}
+
+void	flood_fill(t_map *map, int y, int x)
+{
+	if (map->map[y][x] == 'P' || map->map[y][x] == 'C' || map->map[y][x] == 'E' || map->map[y][x] == '0')
+	{
+		flood_fill(map, y, x + 1);
+		flood_fill(map, y, x - 1);
+		flood_fill(map, y + 1, x);
+		flood_fill(map, y - 1, x);
+	}
+	return (1);
 }
