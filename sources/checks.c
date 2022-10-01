@@ -25,8 +25,7 @@ static void	valid_shape(t_map *map)
 		y = ft_strlen(map->map[x]);
 		if (y != line)
 		{
-			ft_putstr("Error\nThe map is not a rectangle\n");
-			closeprogram();
+			closeprogram("The map is not a rectangle\n");
 		}
 		x++;
 	}
@@ -43,16 +42,14 @@ void	check_walls(t_map *map)
 	{
 		if (map->map[y][x] != '1' || map->map[map->h - 1][x] != '1')
 		{
-			ft_putstr("Error\nMap is not surrounded by walls\n");
-			closeprogram();
+			closeprogram("Map is not surrounded by walls\n");
 		}
 		x++;
 	}
 	while (map->map[y])
 	{		if (map->map[y][0] != '1' || map->map[y][map->w - 1] != '1')
 		{
-			ft_putstr("Error\nMap is not surrounded by walls\n");
-			closeprogram();
+			closeprogram("Map is not surrounded by walls\n");
 		}
 		y++;
 	}
@@ -77,8 +74,7 @@ static int	item_count(t_map *map, int y, int x)
 			map->map[y][x] != 'E' &&
 			map->map[y][x] != 'C')
 	{
-		ft_putstr("Error\nInvalid character in map file\n");
-		closeprogram();
+		closeprogram("Invalid character in map file\n");
 		return (0);
 }
 
@@ -99,15 +95,15 @@ void	valid_map(t_map *map)
 		y++;
 	}
 	if (map->ccount == 0)
-		ft_putstr("Error\nThere are no collectables\n");
+		closeprogram("There are no collectables\n");
 	if (map->pcount < 1)
-		ft_putstr("Error\nThere must be a player in the game\n");
+		closeprogram("There must be a player in the game\n");
 	if (map->pcount > 1)
-		ft_putstr("Error\nThere cannot be more than one player\n");
+		closeprogram("There cannot be more than one player\n");
 	if (map->ecount < 1)
-		ft_putstr("Error\nThere must be an exit in the game\n");
+		closeproegram("here must be an exit in the game\n");
 	if (map->ecount > 1)
-		ft_putstr("Error\nThere can only be one exit in the game\n");
+		closeprogram("There can only be one exit in the game\n");
 	check_walls(map);
 }
 
