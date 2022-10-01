@@ -32,7 +32,7 @@ int	check_map_file(char *str)
 	if (str[i - 1] != 'r' && str[i - 2] != 'e'
 			&& str[i - 3] != 'b' && str[i - 4] != '.')
 	{
-		ft_putstr("Error\nMap must be a .ber file\n");
+		closeprogram("Map must be a .ber file\n");
 		return (1);
 	}
 	return (0);
@@ -71,8 +71,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_putstr("Error\nInvalid number of arguments to run function. Must be 2\n");
-		return (1);
+		closeprogram("Invalid number of arguments to run function. Must be 2\n");
 	}
 	if (check_map_file(argv[1]))
 		return (1);
@@ -84,7 +83,7 @@ int	main(int argc, char **argv)
 	map->win = mlx_new_window(map->mlx, map->w * 32, map->h * 32, "so_long");
 	render_map(map);
 	parse_map(map);
-	mlx_hook(map->win, 17, 0, closeprogram, NULL);
+	mlx_hook(map->win, 17, 0, exitprogram, NULL);
 	mlx_hook(map->win, 2, 1L<<0, keypress_hook, map);
 	mlx_loop(map->mlx);
 	return (0);
