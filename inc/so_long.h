@@ -49,7 +49,8 @@ typedef struct s_map
 	void	*img;
 }	t_map;
 
-int		closeprogram(void);
+int	closeprogram(chaar *str);
+int	exitprogram(void);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int n);
