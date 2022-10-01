@@ -123,4 +123,3 @@ void	flood_fill(t_map *map, char **game, int y, int x)
 	}
 	return ;
 }
-}
