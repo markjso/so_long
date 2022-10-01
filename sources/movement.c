@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 18:51:04 by jmarks            #+#    #+#             */
-/*   Updated: 2022/09/26 15:46:34 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/09/30 15:58:34 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int	keypress_hook(int keycode, t_map *map)
 		y++;
 	else if (keycode == ESC)
 	{
-		exitprogram();
+		ft_putstr("Thanks for playing! So long.\n");
+		exit (1);
 	}
 	if (map->end != 1)
 		move(map, y, x, keycode);

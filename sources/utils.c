@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:01:17 by jmarks            #+#    #+#             */
-/*   Updated: 2022/09/26 15:48:48 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/09/30 12:37:57 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ int	closeprogram(char *str)
 {
 	write(1, "Error\n", 7);
 	ft_putstr(str);
-	exit(1);
+	exit (1);
 }
 
 int	exitprogram(void)
 {
 	ft_putstr("Thanks for playing! So long.\n");
-	exit(1);
+	exit (1);
 }

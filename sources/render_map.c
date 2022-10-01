@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 12:05:18 by jmarks            #+#    #+#             */
-/*   Updated: 2022/09/26 16:52:37 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/10/01 17:45:43 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,17 @@ void	parse_map(t_map *map)
 		height++;
 		place_collectable(map);
 	}
+}
+
+void	copy_map(char **origin, char **copy)
+{
+	int	i;
+
+	i = 0;
+	while (copy[i])
+	{
+		origin[i] = ft_strdup(copy[i]);
+		i++;
+	}
+	origin[i] = NULL;
 }
