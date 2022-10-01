@@ -47,7 +47,14 @@ void	ft_putnbr(int n)
 	}
 }
 
-int	closeprogram(void)
+int	closeprogram(char *str)
+{
+	write(1, "Error\n", 7);
+	ft_putstr(str);
+	exit(1);
+}
+
+int	exitprogram(void)
 {
 	exit(1);
 }
