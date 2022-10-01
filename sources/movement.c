@@ -17,7 +17,10 @@ static int	valid_move(t_map *map, int y, int x, int keycode)
 	if (map->map[y][x] == '1')
 		return (-1);
 	if (map->map[y][x] == 'C')
+	{
 		map->ccount--;
+		map->map[y][x] == '0';
+	}
 	if (map->map[y][x] == 'E' && map->ccount == 0)
 	{
 		map->end = 1;
