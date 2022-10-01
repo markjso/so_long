@@ -107,14 +107,20 @@ void	valid_map(t_map *map)
 	check_walls(map);
 }
 
-void	flood_fill(t_map *map, int y, int x)
+void	flood_fill(t_map *map, char **game, int y, int x)
 {
-	if (map->map[y][x] == 'P' || map->map[y][x] == 'C' || map->map[y][x] == 'E' || map->map[y][x] == '0')
+	if (game[y][x] == 'P' || game[y][x] == 'C' ||game[y][x] == 'E' || game[y][x] == '0')
 	{
-		flood_fill(map, y, x + 1);
-		flood_fill(map, y, x - 1);
-		flood_fill(map, y + 1, x);
-		flood_fill(map, y - 1, x);
+		if (game[y][x] == 'C')
+			map->ccount++;
+		if (game[y][x] == 'E')
+			map->ecoun++;
+		game[x][x] = '5';
+		flood_fill(map, game, y, x + 1);
+		flood_fill(map, game, y, x - 1);
+		flood_fill(map, game, y + 1, x);
+		flood_fill(map, game, y - 1, x);
 	}
-	return (1);
+	return ;
+}
 }
