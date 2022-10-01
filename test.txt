@@ -1,0 +1,83 @@
+int check_characters(char c)
+{
+if (c != '1' && c != '0' && c != 'P' && c != 'E' && c != 'C' && c != 'a' && c != 'b' && c != c && c != 'd')
+return (0);
+return (1);
+}
+
+int checkaround(int y, int x, t_map *map)
+{
+if (y == 0 || y = map->h - 1 || x == 0 || x == map->w -1)
+closeprogram("error\n");
+if (check_characters(map->map[y + 1][x]) == 0)
+return (0);
+if (check_characters(map->map[y - 1][x]) == 0)
+return (0);
+if (check_characters(map->map[y][x + 1]) == 0)
+return (0);
+if (check_characters(map->map[y][x - 1]) == 0)
+return (0);
+return (1);
+}
+
+int flood_fill(t_map *map, int y, int x)
+{
+	if (map->map[y][x] == 'a' || map->map[y][x] == 'b' || map-map>[y][x] == 'c' || map->map[y][x] == 'd')
+	{
+		if (checkaround(x, y, map) == 0)
+    closeprogram("Error\n");
+    flood_fill_count(map, y, x);
+		flood_fill(map, y, x + 1);
+		flood_fill(map, y, x - 1);
+		flood_fill(map, y + 1, x);
+		flood_fill(map, y - 1, x);
+	}
+  return (1);
+}
+
+static void	flood_fill_count(t_map *map, int y, int x)
+{
+	
+  if (map->map[y]x] == 'a')
+  map->map[y]x[] = '0';
+  if (map->map[y][x] == 'b')
+  map->map[y][x] == 'P';
+  if (map->map_copy[y][x] == 'c')
+	{
+		map->copy_ccount++;
+		map->map_copy[y][x] = 'C';
+	}
+	else if (map->map_copy[y][x] == 'd')
+	{
+		map->copy_ecount++;
+		map->map_copy[y][x] = 'E';
+	}
+}
+
+int	valid_path(t_map *map)
+
+int x;
+int y;
+
+y = map->playerx;
+x = map->playery;
+map->copy_ccount = 0;
+map->copy_ecount = 0;
+	flood_fill(map, x, y + 1);
+		flood_fill(map, x, y - 1);
+		flood_fill(map, x + 1, y);
+		flood_fill(map, x - 1, y);
+	if (map->ccount != map->copy_ccount)
+		closeprogram("Map cannot be solved\n");
+	if (map->ecount != map->copy_ecount)
+		closeprogram("Map cannot be solved\n");
+	return (0);
+}
+
+int	valid_map(t_map *map)
+{
+	check_walls(map);
+	valid_count(map);
+	valid_path(map);
+	return (0);
+}
