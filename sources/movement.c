@@ -22,7 +22,7 @@ static int	valid_move(t_map *map, int y, int x, int keycode)
 	{
 		map->end = 1;
 		ft_putstr("Congratulations, you have won the game!");
-		closeprogram();
+		exit (1);
 	}
 	else if (map->map[y][x] == 'E')
 	{
@@ -76,8 +76,7 @@ int	keypress_hook(int keycode, t_map *map)
 		y++;
 	else if (keycode == ESC)
 	{
-		printf("Thanks for playing! So long.\n");
-		closeprogram();
+		exitprogram();
 	}
 	if (map->end != 1)
 		move(map, y, x, keycode);
