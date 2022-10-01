@@ -56,5 +56,6 @@ int	closeprogram(char *str)
 
 int	exitprogram(void)
 {
+	ft_putstr("Thanks for playing! So long.\n");
 	exit(1);
 }
