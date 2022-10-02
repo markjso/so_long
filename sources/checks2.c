@@ -36,6 +36,8 @@ static void	flood_fill(t_map *map, int paint, int y, int x)
 int	valid_path(t_map *map, int y, int x)
 {
 	map->map_copy = ft_calloc(1, sizeof(map->map));
+	y = map->playery;
+	x = map->playerx;
 	copy_map(map->map, map->map_copy);
 	flood_fill(map, 'P', y, x);
 	if (map->ccount != map->copy_ccount)
