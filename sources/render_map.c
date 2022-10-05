@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 12:05:18 by jmarks            #+#    #+#             */
-/*   Updated: 2022/10/01 17:45:43 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/10/04 12:54:58 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,15 @@ void	parse_map(t_map *map)
 	}
 }
 
-void	copy_map(char **origin, char **copy)
+void	copy_map(char **origin_map, char **copy_map)
 {
 	int	i;
 
 	i = 0;
-	while (copy[i])
+	while (copy_map[i])
 	{
-		origin[i] = ft_strdup(copy[i]);
+		origin_map[i] = ft_strdup(copy_map[i]);
 		i++;
 	}
-	origin[i] = NULL;
+	origin_map[i] = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:53:39 by jmarks            #+#    #+#             */
-/*   Updated: 2022/10/01 18:15:44 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/10/04 17:33:11 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,19 @@ static void	init_components(t_map *map)
 	map->steps = 1;
 }
 
-int	check_map_file(char *str)
+static int	get_width(char *str)
 {
-	int	i;
+	int	x;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	if (str[i - 1] != 'r' && str[i - 2] != 'e'
-		&& str[i - 3] != 'b' && str[i - 4] != '.')
-	{
-		ft_putstr("Error\nMap must be a .ber file\n");
-		return (1);
-	}
-	return (0);
+	x = 0;
+	while (str[x] != '\0')
+		x++;
+	if (str[x - 1] == '\n')
+		x--;
+	return (x);
 }
 
-t_map	*read_map(char *argv )
+t_map	*read_map(char *argv)
 {
 	t_map	*new;
 	int		y;
@@ -48,7 +44,6 @@ t_map	*read_map(char *argv )
 	new = (t_map *) ft_calloc(1, sizeof(t_map));
 	new->fd = open(argv, O_RDONLY);
 	new->h = 0;
-	new->w = 0;
 	y = 0;
 	if (new->fd < 0)
 	{
@@ -65,8 +60,8 @@ t_map	*read_map(char *argv )
 		new->map[y] = get_next_line(new->fd);
 		y++;
 	}
-	while (new->map[0][new->w++ + 2])
-		close(new->fd);
+	close(new->fd);
+	new->w = get_width(new->map[0]);
 	return (new);
 }
 
@@ -76,7 +71,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_putstr("Error\nInvalid number of arguments. Must be 2\n");
+		ft_putstr("Error\nInvalid number of argument, there must be 2.\n");
 		return (1);
 	}
 	if (check_map_file(argv[1]))

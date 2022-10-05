@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 18:51:04 by jmarks            #+#    #+#             */
-/*   Updated: 2022/09/30 15:58:34 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/10/05 10:30:23 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ static int	valid_move(t_map *map, int y, int x, int keycode)
 	if (map->map[y][x] == '1')
 		return (-1);
 	if (map->map[y][x] == 'C')
-	{
 		map->ccount--;
-		map->map[y][x] == '0';
-	}
 	if (map->map[y][x] == 'E' && map->ccount == 0)
 	{
 		map->end = 1;
@@ -53,7 +50,7 @@ static void	move(t_map *map, int y, int x, int keycode)
 		map->playery = y;
 		map->playerx = x;
 		map->map[y][x] = 'P';
-		ft_putstr("Number of steps: ");
+		ft_putstr("Number of moves: ");
 		ft_putnbr(map->steps++);
 		ft_putstr("\n");
 		ft_putstr("Amount of treasure to collect: ");
@@ -79,7 +76,7 @@ int	keypress_hook(int keycode, t_map *map)
 		y++;
 	else if (keycode == ESC)
 	{
-		ft_putstr("Thanks for playing! So long.\n");
+		ft_putstr("Thanks for playing. So_long!\n");
 		exit (1);
 	}
 	if (map->end != 1)

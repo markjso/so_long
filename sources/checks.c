@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:07:20 by jmarks            #+#    #+#             */
-/*   Updated: 2022/10/01 19:07:18 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/10/05 10:41:01 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -64,11 +64,7 @@ static void	item_count(t_map *map, int y, int x)
 	if (map->map[y][x] == 'C')
 		map->ccount++;
 	if (map->map[y][x] == 'P')
-	{
 		map->pcount++;
-		y = map->playery;
-		x = map->playerx;
-	}
 	if (map->map[y][x] != '1' &&
 			map->map[y][x] != '0' &&
 			map->map[y][x] != 'P' &&
@@ -100,7 +96,7 @@ void	valid_count(t_map *map)
 	if (map->pcount < 1)
 		closeprogram("There must be a player in the game\n");
 	if (map->pcount > 1)
-		closeprogram("There cannot be more than one player\n");
+		closeprogram("There can only be one player in the game\n");
 	if (map->ecount < 1)
 		closeprogram("There must be an exit in the game\n");
 	if (map->ecount > 1)
