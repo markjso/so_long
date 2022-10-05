@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 10:30:37 by jmarks            #+#    #+#             */
-/*   Updated: 2022/10/01 19:16:50 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/10/05 10:51:36 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_map
 	int		end;
 	char	**map;
 	char	**map_copy;
-	int 	copy_ccount;
+	int		copy_ccount;
 	int		copy_ecount;
 	int		w;
 	int		h;
@@ -61,13 +61,12 @@ void	place_player(t_map *map, int height, int width);
 void	place_collectable(t_map *map);
 int		check_map_file(char *str);
 void	check_walls(t_map *map);
-int		valid_path(t_map *map, int y, int x);
 void	valid_count(t_map *map);
 int		valid_map(t_map *map);
 int		keypress_hook(int keycode, t_map *map);
 void	render_map(t_map *map);
 void	parse_map(t_map *map);
-void	copy_map(char **origin, char** copy);
+void	copy_map(char **origin_map, char **copy_map);
 void	render_background(t_map *map);
 
 #endif
