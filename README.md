@@ -1,2 +1,2 @@
 # My So_Long Game
-![Untitled design](https://user-images.githubusercontent.com/97271827/200220166-6a57d488-c3f0-40c5-9427-b3a91e591c8d.gif)
+![So_long](https://user-images.githubusercontent.com/97271827/200221863-0c5e0b5b-b974-460c-bfc4-2dbb33d800b6.gif)
