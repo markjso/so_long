@@ -5,6 +5,6 @@ Some useful links for using the minilibx library.
 
 https://aurelienbrabant.fr/blog
 
-https://harm-smits.github.io/42docs/libs/minilibx/
+https://harm-smits.github.io/42docs/libs/minilibx
 
 https://github.com/S-LucasSerrano/miniLibX_sample
