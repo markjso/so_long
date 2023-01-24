@@ -3,7 +3,7 @@
 # Project Resources
 Some useful links for using the minilibx library.
 
-https://aurelienbrabant.fr/blog
+https://aurelienbrabant.fr/blog (currently waitin on SSL update)
 
 https://harm-smits.github.io/42docs/libs/minilibx
 
