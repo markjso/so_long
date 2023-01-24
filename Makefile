@@ -14,14 +14,14 @@ NAME = so_long
 
 MLX_DIR = mlx
 
-SRCS = srcs/so_long.c \
-	srcs/movement.c \
-	srcs/utils.c \
-	srcs/render_map.c \
-	srcs/checks.c \
-	srcs/checks2.c \
-	srcs/get_next_line.c \
-	srcs/get_next_line_utils.c
+SRCS = sources/so_long.c \
+	sources/movement.c \
+	sources/utils.c \
+	sources/render_map.c \
+	sources/checks.c \
+	sources/checks2.c \
+	sources/get_next_line.c \
+	sources/get_next_line_utils.c
 	
 OBJS=$(SRCS:.c=.o)
 
